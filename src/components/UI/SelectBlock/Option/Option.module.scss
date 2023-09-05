@@ -1,0 +1,22 @@
+.option {
+    padding: 3px 7px;
+    border-bottom: 1.5px solid black;
+    transition: 0.2s all;
+
+    p {
+        color: black;
+    }
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &:hover {
+        transition: 0.2s all;
+        background-color: var(--gray);
+
+        p {
+            scale: 1.03;
+        }
+    }
+}

@@ -1,0 +1,38 @@
+.selectWrapper {
+    background-color: white;
+    padding: 10px;
+    position: relative;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    width: 100%;
+    border: 1px solid red;
+    width: 150px;
+}
+
+.select {
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    top: 110%;
+    left: 0;
+}
+
+.placeholder {
+    width: 100%;
+}
+
+.arrow {
+    svg {
+        transition: 0.2s transform;
+    }
+
+    &.active {
+        svg {
+            transition: 0.2s transform;
+            transform: rotate(180deg);
+        }
+    }
+}
