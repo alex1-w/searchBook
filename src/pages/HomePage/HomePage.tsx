@@ -4,13 +4,14 @@ import { Skeleton } from '../../components/UI/Skeleton/Skeleton';
 import { fetchBooks } from '../../store/books/booksActions';
 import { useAppDispatch, useAppSelector } from '../../store/reduxHooks/reduxHooks';
 import { FC, useEffect } from 'react';
+import { Pagination } from '../../components/Pagination/Pagination';
 
 const HomePage: FC = () => {
     const { books, isLoading, error } = useAppSelector((state) => state.booksData);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(fetchBooks({query: 'all'}));
+        dispatch(fetchBooks({ args: { searchText: 'all' } }));
     }, []);
 
     return (

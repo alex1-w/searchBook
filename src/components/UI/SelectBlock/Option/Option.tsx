@@ -1,7 +1,10 @@
-import { IOption } from '../SelectBlock';
 import styles from './Option.module.scss';
 import { FC, MouseEventHandler } from "react"
 
+export interface IOption {
+    value: string;
+    label: string;
+}
 
 type IOptionProps = {
     option: IOption;

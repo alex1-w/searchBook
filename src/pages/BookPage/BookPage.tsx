@@ -1,13 +1,12 @@
 import styles from './BookPage.module.scss';
 import { useParams } from 'react-router-dom';
 import { FC, useEffect } from 'react';
-import { fetchBooks } from '../../store/books/booksActions';
 import { API_KEY, mainApi } from '../../api/api';
 // 'https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC?key=yourAPIKey'
 
 const BookPage: FC = () => {
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
 
   const getBook = async () => {
     const { data } = await mainApi.get(`books/v1/volumes/${id}`, {
@@ -24,7 +23,11 @@ const BookPage: FC = () => {
     }
   }, [id]);
 
-  return <main></main>;
+  return (
+    <main>
+      <p></p>
+    </main>
+  );
 };
 
 export default BookPage;

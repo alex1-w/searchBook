@@ -2,39 +2,38 @@ import styles from './Header.module.scss';
 import InputBlock from '../../../components/UI/InputBlock/InputBlock';
 import SelectBlock from '../../../components/UI/SelectBlock/SelectBlock';
 import { FC, useState } from 'react';
+import { categoryOptions, sortingOptions } from './options.data';
+import { useAppDispatch } from '../../../store/reduxHooks/reduxHooks';
+import { fetchBooks } from '../../../store/books/booksActions';
 
-const options = [
-  {
-    label: 'все',
-    value: '&filter=ebooks',
-  },
-  {
-    label: 'предварительный просмотр',
-    value: '&filter=partial',
-  },
-  {
-    label: 'виден весь текст',
-    value: '&filter=full',
-  },
-  {
-    label: 'бесплатные',
-    value: 'filter=free-ebooks',
-  },
-  {
-    label: 'платные',
-    value: '&filter=paid-ebooks',
-  },
-];
+export interface ISearchFrom {
+  searchText: string;
+  category: string;
+  filter: string;
+}
 
 const Header: FC = () => {
-  const [category, setCategory] = useState('');
-  const handleCategory = (value: string) => setCategory(value);
+  const [queryArgs, setQueryArgs] = useState<ISearchFrom>({
+    searchText: '',
+    category: categoryOptions[0].label,
+    filter: sortingOptions[0].label,
+  });
+  const dispatch = useAppDispatch();
 
-  const [sorting, setSorting] = useState('');
-  const handleSorting = (value: string) => setSorting(value);
+  const getBooksByQuery = () => {
+    dispatch(fetchBooks({ args: { searchText: queryArgs.searchText, orderBy: queryArgs.filter, category: queryArgs.category} }));
+  };
 
-  const selectedCategory = options.find((item) => item.value === category);
-  const selectedSorting = options.find((item) => item.value === sorting);
+  const handleSorting = (value: string) => {
+    setQueryArgs({ ...queryArgs, filter: value });
+  };
+
+  const handleCategory = (value: string) => {
+    setQueryArgs({ ...queryArgs, category: value });
+  };
+
+  const selectedFilter = categoryOptions.find((item) => item.value === queryArgs.category);
+  const selectedSorting = sortingOptions.find((item) => item.value === queryArgs.filter);
 
   return (
     <header className={styles.main}>
@@ -42,15 +41,25 @@ const Header: FC = () => {
         <div>
           <h1>Search for books</h1>
 
-          <InputBlock name='search' placeholder='Поиск...' />
+          <InputBlock
+            queryArgs={queryArgs}
+            setQueryArgs={setQueryArgs}
+            name='search'
+            placeholder='Поиск...'
+            // orderBy={filter}
+            // sorting={sorting}
+            getBooksByQuery={getBooksByQuery}
+          />
 
           <div className={styles.selectsBlock}>
             <div className={styles.selectsBlock__item}>
               <p>Categories</p>
 
               <SelectBlock
-                options={options}
-                selected={selectedCategory || options[0]}
+                selected={selectedFilter || categoryOptions[0]}
+                queryArgs={queryArgs}
+                setQueryArgs={setQueryArgs}
+                options={categoryOptions}
                 onChange={handleCategory}
                 placeholder=''
               />
@@ -60,8 +69,10 @@ const Header: FC = () => {
               <p>Sorting by</p>
 
               <SelectBlock
-                options={options}
-                selected={selectedSorting || options[0]}
+                selected={selectedSorting || sortingOptions[0]}
+                queryArgs={queryArgs}
+                setQueryArgs={setQueryArgs}
+                options={sortingOptions}
                 onChange={handleSorting}
                 placeholder=''
               />
