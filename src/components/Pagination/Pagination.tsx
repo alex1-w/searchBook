@@ -1,37 +1,28 @@
-import { IBook } from '../../types/IBooksRespons'
-import styles from './Pagination.module.scss'
-import { FC, useState } from 'react'
+import styles from './Pagination.module.scss';
+import { FC } from 'react';
 
-interface IPaginationProps {
-    books: IBook[]
-    setPage: (active: IBook[]) => void
-    bookInPage: number
+interface IPagination {
+    isAllowPaginate: boolean;
+    totalCountPages: number;
+    setStartIndex: (prev: any) => void;
 }
 
-export const Pagination: FC<IPaginationProps> = ({ books, setPage, bookInPage }) => {
-
-    const bookSlice = (index: number) => {
-        const booksArr = books.slice(index * bookInPage, index * bookInPage + bookInPage);
-        setPage(booksArr)
-        console.log(Math.round(books.length / 5));
-        console.log(books.length);
-    }
-
-
+const Pagination: FC<IPagination> = ({ isAllowPaginate, setStartIndex, totalCountPages }) => {
     return (
-        <div className={styles.main}>
-
-            {books.length > 5
-                ?
-                <div className={styles.paginate}>
-                    {books.slice(0, Math.ceil(books.length / 5)).map((item, index) => (
-                        <div onClick={() => bookSlice(index)} key={index}>
-                            {index + 1}
+        <div className={styles.pagination}>
+            {isAllowPaginate ? (
+                [
+                    ...new Array(totalCountPages).map((_, i) => (
+                        <div key={i} onClick={() => setStartIndex((prev: number) => prev + 10)}>
+                            <p>{i + 1}</p>
                         </div>
-                    ))}
-                </div>
-                :
-                null}
+                    )),
+                ]
+            ) : (
+                <></>
+            )}
         </div>
-    )
-}
+    );
+};
+
+export default Pagination;

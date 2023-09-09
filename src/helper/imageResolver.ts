@@ -1,6 +1,6 @@
-import { IVolumeInfo } from "../types/IBooksRespons"
+import { IVolumeInfo } from "../types/IBooksResponse"
 
-export const getImage = (volumeInfo: IVolumeInfo) => {
+export const imageResolver = (volumeInfo: IVolumeInfo) => {
     if (volumeInfo?.imageLinks?.smallThumbnail) {
         // console.log(volumeInfo.imageLinks.smallThumbnail);
         return volumeInfo.imageLinks.smallThumbnail

@@ -1,4 +1,4 @@
-import { IBooksResponse } from './../../types/IBooksRespons';
+import { IBooksResponse } from '../../types/IBooksResponse';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchBooks } from './booksActions';
 // import { fetchBooks } from './booksActions'
@@ -22,16 +22,16 @@ export const booksSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchBooks.pending, (state) => {
-        console.log('pending');
+        // console.log('pending');
         state.isLoading = true;
       })
       .addCase(fetchBooks.fulfilled, (state, action: PayloadAction<IBooksResponse>) => {
-        console.log('fulfilled');
+        // console.log('fulfilled');
         state.isLoading = false;
         state.books = action.payload;
       })
       .addCase(fetchBooks.rejected, (state) => {
-        console.log('error');
+        // console.log('error');
         state.isLoading = false;
         state.books = {} as IBooksResponse;
       });

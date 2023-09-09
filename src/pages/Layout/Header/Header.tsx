@@ -5,6 +5,7 @@ import { FC, useState } from 'react';
 import { categoryOptions, sortingOptions } from './options.data';
 import { useAppDispatch } from '../../../store/reduxHooks/reduxHooks';
 import { fetchBooks } from '../../../store/books/booksActions';
+import { Link } from 'react-router-dom';
 
 export interface ISearchFrom {
   searchText: string;
@@ -21,7 +22,17 @@ const Header: FC = () => {
   const dispatch = useAppDispatch();
 
   const getBooksByQuery = () => {
-    dispatch(fetchBooks({ args: { searchText: queryArgs.searchText, orderBy: queryArgs.filter, category: queryArgs.category} }));
+    dispatch(
+      fetchBooks({
+        query: {
+          text: queryArgs.searchText,
+          filter: {
+            orderBy: queryArgs.filter,
+            category: queryArgs.category,
+          },
+        },
+      }),
+    );
   };
 
   const handleSorting = (value: string) => {
@@ -39,15 +50,15 @@ const Header: FC = () => {
     <header className={styles.main}>
       <div className={styles.main__wrapper}>
         <div>
-          <h1>Search for books</h1>
+          <Link to='/'>
+            <h1>Search for books</h1>
 
+          </Link>
           <InputBlock
             queryArgs={queryArgs}
             setQueryArgs={setQueryArgs}
             name='search'
             placeholder='Поиск...'
-            // orderBy={filter}
-            // sorting={sorting}
             getBooksByQuery={getBooksByQuery}
           />
 

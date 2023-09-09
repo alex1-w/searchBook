@@ -1,0 +1,59 @@
+.main {
+    width: 100%;
+    min-height: 90vh;
+}
+
+.bookWrapper {
+    margin: 0 auto;
+    max-width: 1400px;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    align-items: center;
+    height: 100%;
+}
+
+.imgBlock {
+    background-color: rgb(240, 240, 240);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__image {
+        max-width: 400px;
+        max-height: 550px;
+
+        img {
+            object-fit: contain;
+        }
+    }
+}
+
+.infoBlock {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    h2 {
+        font-size: 25px;
+        color: black;
+    }
+}
+
+.description {
+    // max-height: 300px;
+    max-height: 190px;
+    overflow-y: auto;
+    border-radius: 5px;
+    padding: 20px 15px;
+    border: 1px solid rgb(209, 209, 209);
+
+    p {
+        a {
+            // font-size: 20px;
+            // color: red;
+        }
+    }
+}
