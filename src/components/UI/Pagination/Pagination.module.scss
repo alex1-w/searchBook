@@ -1,0 +1,32 @@
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // border: 1px solid red;
+    gap: 8px;
+
+    li {
+
+        a {
+            width: 29px;
+            height: 29px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgb(212, 212, 212);
+            color: black;
+            transition: 0.2s background-color;
+
+            &:hover {
+                transition: 0.2s background-color;
+                background-color: rgb(139, 139, 139) !important;
+            }
+        }
+    }
+
+}
+
+.activePage {
+    background-color: rgb(139, 139, 139) !important;
+}

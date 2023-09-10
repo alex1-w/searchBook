@@ -4,14 +4,24 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
 }
 
-.booksBlock {
+.mainBooks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    justify-items: center;
-    row-gap: 30px;
+    align-items: center;
+
+    &__booksBlock {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        justify-items: center;
+        row-gap: 30px;
+    }
+
 }
 
 .skeleton {
@@ -20,18 +30,13 @@
     border-radius: 5px;
 }
 
-.pagination {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    border: 1px solid red;
-    gap: 10px;
-}
 
 @media screen and (max-width:1350px) {
-    .booksBlock {
-        grid-template-columns: repeat(4, 1fr);
-        row-gap: 20px;
+    .mainBooks {
+        &__booksBlock {
+            grid-template-columns: repeat(4, 1fr);
+            row-gap: 20px;
+        }
     }
 }
 
@@ -40,9 +45,11 @@
         padding: 20px 10px;
     }
 
-    .booksBlock {
-        grid-template-columns: repeat(3, 1fr);
-        row-gap: 20px;
+    .mainBooks {
+        &__booksBlock {
+            grid-template-columns: repeat(3, 1fr);
+            row-gap: 20px;
+        }
     }
 }
 
@@ -51,16 +58,20 @@
         padding: 20px 5px;
     }
 
-    .booksBlock {
-        grid-template-columns: repeat(2, 1fr);
-        row-gap: 10px;
+    .mainBooks {
+        &__booksBlock {
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 20px;
+        }
     }
 }
 
 @media screen and (max-width:520px) {
 
-    .booksBlock {
-        grid-template-columns: 1fr;
-        row-gap: 30px;
+    .mainBooks {
+        &__booksBlock {
+            grid-template-columns: 1fr;
+            row-gap: 20px;
+        }
     }
 }

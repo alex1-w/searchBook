@@ -1,14 +1,14 @@
 import styles from './InputBlock.module.scss';
-import { searchIcon } from '../../icons/icons';
 import { DetailedHTMLProps, FC, InputHTMLAttributes } from 'react';
-import {  ChangeEvent, KeyboardEvent } from 'react';
+import { ChangeEvent, KeyboardEvent } from 'react';
 import { ISearchFrom } from '../../../pages/Layout/Header/Header';
+import { searchIcon } from '../../../icons/icons';
 
 interface IInputBlock {
   placeholder: string;
   name: string;
   queryArgs: ISearchFrom;
-  setQueryArgs: ({}: ISearchFrom) => void;
+  setQueryArgs: ({ }: ISearchFrom) => void;
   getBooksByQuery: () => void;
 }
 

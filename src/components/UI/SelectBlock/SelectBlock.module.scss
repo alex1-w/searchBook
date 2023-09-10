@@ -1,38 +1,38 @@
 .selectWrapper {
-    background-color: white;
-    padding: 10px;
-    position: relative;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    width: 100%;
-    border: 1px solid red;
-    width: 150px;
+  background-color: white;
+  position: relative;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  width: 150px;
 }
 
 .select {
-    border: 2px solid black;
-    border-radius: 5px;
-    width: 100%;
-    background-color: white;
-    position: absolute;
-    top: 110%;
-    left: 0;
+  border: 1.2px solid black;
+  border-radius: 5px;
+  width: 100%;
+  background-color: white;
+  position: absolute;
+  top: 106%;
+  left: 0;
+  overflow: hidden;
 }
 
 .placeholder {
-    width: 100%;
-}
+  padding: 7px 4px 7px 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-.arrow {
+  svg {
+    transition: 0.2s transform;
+  }
+
+  &.active {
     svg {
-        transition: 0.2s transform;
+      transition: 0.2s transform;
+      transform: rotate(180deg);
     }
-
-    &.active {
-        svg {
-            transition: 0.2s transform;
-            transform: rotate(180deg);
-        }
-    }
+  }
 }

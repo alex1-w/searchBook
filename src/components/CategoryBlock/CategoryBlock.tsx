@@ -10,20 +10,13 @@ interface ICategoryBlock {
 
 const CategoryBlock: FC<ICategoryBlock> = ({ categories, style = 'mini' }) => {
   return (
-    <div
-      className={cn(styles.main, {
-        [styles.mini]: style === 'mini',
-        [styles.bookPageVariant]: style === 'bookPageVariant',
-      })}
-    >
-      {categories ? (
+    <div className={cn(styles.main, styles[style])}>
+      {categories?.length && (
         <div>
           {categories.map((category) => (
             <p key={category}>{category}</p>
           ))}
         </div>
-      ) : (
-        <></>
       )}
     </div>
   );

@@ -1,9 +1,10 @@
 .option {
     padding: 3px 7px;
-    border-bottom: 1.5px solid black;
+    border-bottom: 1.1px solid rgb(112, 112, 112);
     transition: 0.2s all;
 
     p {
+        font-weight: normal;
         color: black;
     }
 

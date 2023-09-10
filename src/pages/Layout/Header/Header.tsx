@@ -9,42 +9,44 @@ import { Link } from 'react-router-dom';
 
 export interface ISearchFrom {
   searchText: string;
-  category: string;
-  filter: string;
+  filters: {
+    category?: string;
+    orderBy?: string;
+  };
 }
 
 const Header: FC = () => {
+  const dispatch = useAppDispatch();
   const [queryArgs, setQueryArgs] = useState<ISearchFrom>({
     searchText: '',
-    category: categoryOptions[0].label,
-    filter: sortingOptions[0].label,
+    filters: {
+      category: categoryOptions[0].value,
+      orderBy: sortingOptions[0].value,
+    },
   });
-  const dispatch = useAppDispatch();
 
   const getBooksByQuery = () => {
     dispatch(
       fetchBooks({
         query: {
           text: queryArgs.searchText,
-          filter: {
-            orderBy: queryArgs.filter,
-            category: queryArgs.category,
-          },
+          orderBy: queryArgs.filters.orderBy,
         },
       }),
     );
   };
 
   const handleSorting = (value: string) => {
-    setQueryArgs({ ...queryArgs, filter: value });
+    setQueryArgs({ ...queryArgs, filters: { orderBy: value } });
+    // dispatch(fetchBooks({query:{}}))
   };
 
   const handleCategory = (value: string) => {
-    setQueryArgs({ ...queryArgs, category: value });
+    setQueryArgs({ ...queryArgs, filters: { category: value } });
   };
 
-  const selectedFilter = categoryOptions.find((item) => item.value === queryArgs.category);
-  const selectedSorting = sortingOptions.find((item) => item.value === queryArgs.filter);
+  const selectedFilter = categoryOptions.find((item) => item.value === queryArgs.filters.category);
+  const selectedSorting = sortingOptions.find((item) => item.value === queryArgs.filters.orderBy);
 
   return (
     <header className={styles.main}>
@@ -52,7 +54,6 @@ const Header: FC = () => {
         <div>
           <Link to='/'>
             <h1>Search for books</h1>
-
           </Link>
           <InputBlock
             queryArgs={queryArgs}
