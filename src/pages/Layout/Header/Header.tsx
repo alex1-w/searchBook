@@ -42,6 +42,7 @@ const Header: FC = () => {
     setQueryArgs({ ...queryArgs, category: value });
     dispatch(fetchBooks({ query: { category: queryArgs.category } }));
   };
+  console.log(queryArgs);
 
   const selectedFilter = categoryOptions.find((item) => item.value === queryArgs.category);
   const selectedSorting = sortingOptions.find((item) => item.value === queryArgs.orderBy);

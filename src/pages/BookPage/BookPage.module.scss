@@ -57,3 +57,64 @@
         }
     }
 }
+
+
+////////////////////////////////////
+
+.bookWrapperSkeleton {
+    margin: 0 auto;
+    max-width: 1400px;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    // max-height: 600px;
+    height: 100%;
+}
+
+.imgBlockSkeleton {
+    height: 100%;
+    width: 100%;
+}
+
+.categorySkeleton {
+    width: 80%;
+    height: 30px;
+}
+
+.skeletonTitle {
+    width: 150px;
+    height: 20px;
+    border-radius: 3px;
+}
+
+.infoBlockSkeleton {
+
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+
+    >div:first-child {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    >div:last-child {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.authorsSkeleton {
+    width: 200px;
+    height: 20px;
+}
+
+.descriptionSkeleton {
+    width: 80px;
+    height: 100%;
+}

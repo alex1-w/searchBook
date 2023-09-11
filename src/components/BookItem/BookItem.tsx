@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 const BookItem: FC<{ book: IBook }> = ({
   book: { accessInfo, etag, id, kind, saleInfo, searchInfo, selfLink, textSnippet, volumeInfo },
 }) => {
+  
   return (
     <Link className={styles.main} to={`book/${id}`}>
       <div className={styles.imgBlock}>

@@ -24,18 +24,16 @@ const InputBlock: FC<
   };
 
   return (
-    <div>
-      <div className={styles.main}>
-        {searchIcon}
-        <input
-          name={name}
-          placeholder={placeholder}
-          type='text'
-          value={queryArgs.searchText}
-          onChange={changeHandler}
-          onKeyDown={searchBooks}
-        />
-      </div>
+    <div className={styles.main}>
+      {searchIcon}
+      <input
+        name={name}
+        placeholder={placeholder}
+        type='text'
+        value={queryArgs.searchText}
+        onChange={changeHandler}
+        onKeyDown={searchBooks}
+      />
     </div>
   );
 };
