@@ -32,7 +32,7 @@ const HomePage: FC = () => {
       {isLoading ? (
         <div className={styles.mainBooks__booksBlock}>
           {skeletons.map((item) => (
-            <Skeleton className={styles.skeleton} key={item} />
+            <Skeleton className={styles.skeleton} key={item + 1} />
           ))}
         </div>
       ) : (

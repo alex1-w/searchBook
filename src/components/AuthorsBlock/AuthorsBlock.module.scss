@@ -1,37 +1,28 @@
 .main {
-
-    >h3 {
-        font-size: 12px !important;
-        font-weight: 500;
-        color: gray;
-        margin: 0;
-        -webkit-line-clamp: 2;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+    p {
+        font-size: 12px;
+        text-decoration: underline;
+        color: rgb(198, 198, 198);
     }
 }
 
 .authorsBlock {
-    display: flex;
     gap: 3px;
     max-height: 40px;
-    display: inline-block;
+    overflow: hidden;
 
     p {
-        // text-align: ;
+        display: inline-block;
     }
 }
 
 .bookMini {
     div {
         overflow: hidden;
-        // border: 1px solid red;
 
         p {
-            // border: 1px solid red;
             color: rgb(182, 182, 182);
-            font-size: 14px;
+            font-size: 12px;
         }
     }
 }

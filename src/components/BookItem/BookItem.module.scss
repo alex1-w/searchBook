@@ -1,7 +1,6 @@
 .main {
     padding: 15px 8px 10px 8px;
     width: 230px;
-    height: 320px;
     background-color: rgb(232, 232, 232);
     display: flex;
     flex-direction: column;
@@ -19,36 +18,40 @@
 }
 
 .imgBlock {
-    // position: relative;
-    max-width: 50%;
-    max-height: 50%;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.475);
+    // border: 1px solid red;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     >img {
-        object-fit: contain;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.475);
+        object-fit: fill;
     }
 }
 
 .descriptionBlock {
-    // padding: 0 6px;
+    margin-top: 7px;
     height: 80px;
     width: 100%;
-    // border: 1px solid red;
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 5px;
+    // border: 1px solid red;
 
-    >h5 {
+    >p {
+        font-weight: 600;
+        font-size: 15px;
         color: black;
-        margin: 0;
         -webkit-line-clamp: 2;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
 
-    >h3 {
-        font-size: 16px !important;
-        color: gray;
-    }
+    // >h3 {
+    //     font-size: 16px !important;
+    //     color: gray;
+    // }
 }

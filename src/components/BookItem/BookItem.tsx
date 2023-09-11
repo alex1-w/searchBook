@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 const BookItem: FC<{ book: IBook }> = ({
   book: { accessInfo, etag, id, kind, saleInfo, searchInfo, selfLink, textSnippet, volumeInfo },
 }) => {
-  
   return (
     <Link className={styles.main} to={`book/${id}`}>
       <div className={styles.imgBlock}>
@@ -18,7 +17,8 @@ const BookItem: FC<{ book: IBook }> = ({
 
       <div className={styles.descriptionBlock}>
         <CategoryBlock categories={volumeInfo.categories} style='mini' />
-        <h5>{volumeInfo.title}</h5>
+
+        <p>{volumeInfo.title}</p>
 
         <AuthorsBlock authors={volumeInfo.authors} variant='bookMini' />
       </div>

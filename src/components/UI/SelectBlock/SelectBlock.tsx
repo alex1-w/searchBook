@@ -1,17 +1,13 @@
 import styles from './SelectBlock.module.scss';
 import { FC, useState, MouseEventHandler, useRef } from 'react';
 import Option from './Option/Option';
-import { ISearchFrom } from '../../../pages/Layout/Header/Header';
 import { arrowIcon } from '../../../icons/icons';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IOption, ISelectProps } from './Select.interface';
-import { useAppDispatch } from '../../../store/reduxHooks/reduxHooks';
-import { fetchBooks } from '../../../store/books/booksActions';
 
 const SelectBlock: FC<ISelectProps> = ({ options, selected, onChange, placeholder }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const arrowRef = useRef<HTMLDivElement>(null);
-  const dispatch = useAppDispatch();
 
   const handleOptionClick = (value: IOption['value']) => {
     setIsOpen(false);

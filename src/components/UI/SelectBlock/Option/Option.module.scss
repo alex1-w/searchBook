@@ -1,23 +1,23 @@
 .option {
-    padding: 3px 7px;
-    border-bottom: 1.1px solid rgb(112, 112, 112);
+  padding: 3px 7px;
+  border-bottom: 1.1px solid rgb(112, 112, 112);
+  transition: 0.2s all;
+
+  p {
+    font-weight: normal;
+    color: black;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
     transition: 0.2s all;
+    background-color: var(--gray);
 
     p {
-        font-weight: normal;
-        color: black;
+      scale: 1.03;
     }
-
-    &:last-child {
-        border-bottom: none;
-    }
-
-    &:hover {
-        transition: 0.2s all;
-        background-color: var(--gray);
-
-        p {
-            scale: 1.03;
-        }
-    }
+  }
 }
