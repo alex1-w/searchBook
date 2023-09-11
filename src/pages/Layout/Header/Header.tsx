@@ -9,20 +9,16 @@ import { Link } from 'react-router-dom';
 
 export interface ISearchFrom {
   searchText: string;
-  filters: {
-    category?: string;
-    orderBy?: string;
-  };
+  category?: string;
+  orderBy?: string;
 }
 
 const Header: FC = () => {
   const dispatch = useAppDispatch();
   const [queryArgs, setQueryArgs] = useState<ISearchFrom>({
     searchText: '',
-    filters: {
-      category: categoryOptions[0].value,
-      orderBy: sortingOptions[0].value,
-    },
+    category: categoryOptions[0].value,
+    orderBy: sortingOptions[0].value,
   });
 
   const getBooksByQuery = () => {
@@ -30,23 +26,25 @@ const Header: FC = () => {
       fetchBooks({
         query: {
           text: queryArgs.searchText,
-          orderBy: queryArgs.filters.orderBy,
+          category: queryArgs.category,
+          orderBy: queryArgs.orderBy,
         },
       }),
     );
   };
 
   const handleSorting = (value: string) => {
-    setQueryArgs({ ...queryArgs, filters: { orderBy: value } });
-    // dispatch(fetchBooks({query:{}}))
+    setQueryArgs({ ...queryArgs, orderBy: value });
+    dispatch(fetchBooks({ query: { orderBy: queryArgs.orderBy } }));
   };
 
   const handleCategory = (value: string) => {
-    setQueryArgs({ ...queryArgs, filters: { category: value } });
+    setQueryArgs({ ...queryArgs, category: value });
+    dispatch(fetchBooks({ query: { category: queryArgs.category } }));
   };
 
-  const selectedFilter = categoryOptions.find((item) => item.value === queryArgs.filters.category);
-  const selectedSorting = sortingOptions.find((item) => item.value === queryArgs.filters.orderBy);
+  const selectedFilter = categoryOptions.find((item) => item.value === queryArgs.category);
+  const selectedSorting = sortingOptions.find((item) => item.value === queryArgs.orderBy);
 
   return (
     <header className={styles.main}>

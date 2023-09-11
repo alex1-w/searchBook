@@ -21,6 +21,6 @@ export const fetchBooks = createAsyncThunk('books', async ({ query }: { query: I
             maxResults: 20
         },
     });
-    // console.log(query);
+    console.log(query);
     return books;
 });

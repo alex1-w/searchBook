@@ -20,7 +20,7 @@ const HomePage: FC = () => {
       fetchBooks({
         query: {
           text: 'all',
-          // filter: { orderBy: 'newest', category: undefined },
+          orderBy: 'relevance',
           startIndex: startIndex,
         },
       }),
