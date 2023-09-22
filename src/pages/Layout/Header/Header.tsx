@@ -16,7 +16,7 @@ export interface ISearchFrom {
 const Header: FC = () => {
   const dispatch = useAppDispatch();
   const [queryArgs, setQueryArgs] = useState<ISearchFrom>({
-    searchText: '',
+    searchText: 'пелевин',
     category: categoryOptions[0].value,
     orderBy: sortingOptions[0].value,
   });
@@ -42,7 +42,6 @@ const Header: FC = () => {
     setQueryArgs({ ...queryArgs, category: value });
     dispatch(fetchBooks({ query: { category: queryArgs.category } }));
   };
-  console.log(queryArgs);
 
   const selectedFilter = categoryOptions.find((item) => item.value === queryArgs.category);
   const selectedSorting = sortingOptions.find((item) => item.value === queryArgs.orderBy);

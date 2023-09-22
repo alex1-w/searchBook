@@ -14,8 +14,6 @@ const AuthorsBlock: FC<IAuthorsBlock> = ({ authors, variant = 'bookMini' }) => {
     return `${authors}, `;
   };
 
-  console.log(authors);
-
   return (
     <>
       {authors && (

@@ -22,16 +22,13 @@ export const booksSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchBooks.pending, (state) => {
-        // console.log('pending');
         state.isLoading = true;
       })
       .addCase(fetchBooks.fulfilled, (state, action: PayloadAction<IBooksResponse>) => {
-        // console.log('fulfilled');
         state.isLoading = false;
         state.books = action.payload;
       })
       .addCase(fetchBooks.rejected, (state) => {
-        // console.log('error');
         state.isLoading = false;
         state.books = {} as IBooksResponse;
       });

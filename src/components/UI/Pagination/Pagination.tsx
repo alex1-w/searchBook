@@ -19,7 +19,6 @@ const Pagination: FC<IPagination> = ({ pageCount, onPageChange, setStartIndex })
         <ReactPaginate
             className={styles.main}
             pageCount={pageCount}
-            // nextLabel={pageCount > 10 && arrowRight}
             nextLabel={arrowRight}
             previousLabel={arrowLeft}
             disabledClassName={styles.arrows}

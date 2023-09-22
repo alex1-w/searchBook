@@ -31,8 +31,8 @@ const HomePage: FC = () => {
     <main className={styles.main}>
       {isLoading ? (
         <div className={styles.mainBooks__booksBlock}>
-          {skeletons.map((item) => (
-            <Skeleton className={styles.skeleton} key={item + 1} />
+          {skeletons.map((item, i) => (
+            <Skeleton className={styles.skeleton} key={i} />
           ))}
         </div>
       ) : (
@@ -53,7 +53,10 @@ const HomePage: FC = () => {
         </>
       )}
 
-      <Pagination pageCount={totalCountPages} setStartIndex={setStartIndex} />
+      {totalCountPages > 10 &&
+        <Pagination pageCount={totalCountPages} setStartIndex={setStartIndex} />
+      }
+
     </main>
   );
 };
